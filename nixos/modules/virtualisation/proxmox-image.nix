@@ -258,6 +258,7 @@ with lib;
         name = "proxmox-${cfg.filenameSuffix}";
         baseName = config.image.baseName;
         inherit (cfg) partitionTableType;
+        touchEFIVars = cfg.qemuConf.bios == "ovmf";
         postVM =
           let
             # Build qemu with PVE's patch that adds support for the VMA format
